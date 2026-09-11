@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hanan Graphics — Professional Graphic Designer Portfolio" />
+  <title>Hanan Graphics | Graphic Designer</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    /* =========================
+       ROOT / GLOBAL
+    ========================== */
+    :root {
+      --primary: #ff0000;
+      --primary-dark: #b80000;
+      --bg: #050505;
+      --bg-soft: #0c0c0c;
+      --card: #111111;
+      --card-light: #171717;
+      --white: #ffffff;
+      --text: #eeeeee;
+      --muted: #999999;
+      --border: rgba(255, 255, 255, 0.1);
+      --glass: rgba(10, 10, 10, 0.72);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      --radius: 20px;
+      --transition: 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 0, 0, 0.09), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(255, 0, 0, 0.06), transparent 25%),
+        var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      margin-top: 10px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 15px auto 0;
+      color: var(--muted);
+    }
+
+    /* =========================
+       CUSTOM SCROLLBAR
+    ========================== */
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* =========================
+       BACKGROUND EFFECT
+    ========================== */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.13;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .glow {
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: var(--primary);
+      filter: blur(150px);
+      opacity: 0.08;
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    .glow.one {
+      top: 10%;
+      left: -150px;
+    }
+
+    .glow.two {
+      right: -150px;
+      bottom: 10%;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+    .navbar {
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1150px, 94%);
+      height: 68px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+      font-weight: 700;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -7px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-contact {
+      padding: 10px 18px;
+      background: var(--primary);
+      border-radius: 10px;
+      color: white !important;
+    }
+
+    .nav-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.25);
+    }
+
+    .nav-contact::after {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 19px;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+    .hero {
+      min-height: 90vh;
+      padding-top: 120px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(255, 0, 0, 0.35);
+      background: rgba(255, 0, 0, 0.06);
+      color: #ffb1b1;
+      padding: 8px 15px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--primary);
+      animation: pulse 1.5s infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 8vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      font-weight: 950;
+      animation: fadeUp 0.9s ease 0.1s both;
+    }
+
+    .hero h1 .red {
+      color: var(--primary);
+      text-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+    }
+
+    .hero-description {
+      max-width: 680px;
+      color: #aaa;
+      font-size: clamp(16px, 2vw, 19px);
+      margin: 28px 0;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s ease 0.3s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 23px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.16);
+    }
+
+    .btn-primary:hover {
+      background: #e00000;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(255, 0, 0, 0.25);
+    }
+
+    .btn-outline {
+      border-color: #333;
+      background: rgba(255,255,255,0.03);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      background: rgba(255, 0, 0, 0.05);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #666;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    /* =========================
+       SERVICES
+    ========================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #151515, #0b0b0b);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: var(--primary);
+      filter: blur(60px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255, 0, 0, 0.4);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+    }
+
+    .service-card:hover::before {
+      opacity: 0.15;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(255, 0, 0, 0.08);
+      color: var(--primary);
+      font-size: 23px;
+      margin-bottom: 22px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(-5deg);
+      background: var(--primary);
+      color: white;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 20px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .service-list li {
+      color: #bbb;
+      font-size: 13px;
+    }
+
+    .service-list i {
+      color: var(--primary);
+      margin-right: 8px;
+    }
+
+    /* =========================
+       VIDEO / GRAPHICS FEED
+    ========================== */
+    .feed-status {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin: -30px 0 30px;
+    }
+
+    .feed-status span {
+      color: var(--primary);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .video-card {
+      border: 1px solid var(--border);
+      background: #0d0d0d;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: rgba(255, 0, 0, 0.45);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #151515;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .video-card:hover .video-thumb img {
+      transform: scale(1.07);
+    }
+
+    .play-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+      transition: var(--transition);
+    }
+
+    .video-card:hover .play-button {
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    .video-info {
+      padding: 20px;
+    }
+
+    .video-info h3 {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 7px;
+    }
+
+    .video-info p {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .feed-error {
+      text-align: center;
+      border: 1px dashed #333;
+      padding: 35px;
+      border-radius: var(--radius);
+      color: #777;
+      display: none;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: clamp(35px, 5vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .about-content h2 span {
+      color: var(--primary);
+    }
+
+    .about-content p {
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .tool {
+      border: 1px solid #292929;
+      background: #111;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #ccc;
+      transition: var(--transition);
+    }
+
+    .tool:hover {
+      border-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .stat-card {
+      padding: 30px 20px;
+      text-align: center;
+      background: #0e0e0e;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,0,0,0.4);
+    }
+
+    .stat-card i {
+      color: var(--primary);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .stat-card h3 {
+      font-size: 31px;
+    }
+
+    .stat-card p {
+      color: #777;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 40px;
+      padding: 45px;
+      background: linear-gradient(145deg, #131313, #090909);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+    }
+
+    .contact-info h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info > p {
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 18px 0;
+    }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,0,0,0.08);
+      color: var(--primary);
+      border-radius: 12px;
+    }
+
+    .contact-item small {
+      display: block;
+      color: #666;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-item strong {
+      font-size: 14px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      color: #555;
+      pointer-events: none;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: #090909;
+      border: 1px solid #272727;
+      color: white;
+      outline: none;
+      border-radius: 12px;
+      padding: 15px 15px 15px 45px;
+      transition: var(--transition);
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+      padding-top: 16px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255,0,0,0.06);
+    }
+
+    .contact-form .btn {
+      width: max-content;
+    }
+
+    #formMessage {
+      display: none;
+      color: #8dff8d;
+      font-size: 13px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      background: #050505;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-text {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .footer-text span {
+      color: var(--primary);
+    }
+
+    .socials {
+      display: flex;
+      gap: 9px;
+    }
+
+    .socials a {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #252525;
+      border-radius: 10px;
+      color: #aaa;
+      transition: var(--transition);
+    }
+
+    .socials a:hover {
+      color: white;
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translate(-50%, 0);
+      }
+      50% {
+        transform: translate(-50%, 8px);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       TABLET
+    ========================== */
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: rgba(10,10,10,0.96);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px;
+      }
+
+      .nav-contact {
+        text-align: center;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .services-grid,
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+    @media (max-width: 600px) {
+      .section {
+        padding: 75px 0;
+      }
+
+      .navbar {
+        height: 62px;
+        top: 10px;
+      }
+
+      .hero {
+        min-height: 90vh;
+        padding-top: 110px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .services-grid,
+      .video-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 25px;
+      }
+
+      .contact-box {
+        padding: 25px 18px;
+        border-radius: 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content h2 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="grid-bg"></div>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+  <header class="navbar">
+    <a href="#home" class="logo">HANAN<span>.</span>GRAPHICS</a>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="hero-badge">
+            <span class="live-dot"></span>
+            AVAILABLE FOR CREATIVE PROJECTS
+          </div>
+
+          <h1>
+            DESIGN<br />
+            <span class="red">WITHOUT</span><br />
+            LIMITS.
+          </h1>
+
+          <p class="hero-description">
+            I'm a professional graphic designer creating bold visuals,
+            social media designs, branding, thumbnails and creative
+            digital experiences that make brands stand out.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#work" class="btn btn-primary">
+              <i class="fa-solid fa-eye"></i>
+              View My Work
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              <i class="fa-solid fa-paper-plane"></i>
+              Let's Work Together
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        Scroll to explore ↓
+      </div>
+    </section>
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+    <section class="section" id="services">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>What I Do</span>
+          <h2>Creative Services</h2>
+          <p>
+            Professional visual solutions designed to make your brand,
+            content and social presence look powerful.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <h3>Graphic Design</h3>
+            <p>
+              Eye-catching designs that communicate your message with
+              strong visual hierarchy and modern aesthetics.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i>Social Media Posts</li>
+              <li><i class="fa-solid fa-check"></i>Marketing Designs</li>
+              <li><i class="fa-solid fa-check"></i>Promotional Graphics</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <i class="fa-solid fa-camera-retro"></i>
+            </div>
+            <h3>Social Media Design</h3>
+            <p>
+              Scroll-stopping creative content built for Instagram,
+              Facebook, YouTube and other digital platforms.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i>Instagram Posts</li>
+              <li><i class="fa-solid fa-check"></i>Stories & Reels Covers</li>
+              <li><i class="fa-solid fa-check"></i>Social Campaigns</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+            <h3>YouTube Thumbnails</h3>
+            <p>
+              High-impact thumbnails designed to grab attention and
+              improve the visual appeal of your videos.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i>Gaming Thumbnails</li>
+              <li><i class="fa-solid fa-check"></i>Documentary Thumbnails</li>
+              <li><i class="fa-solid fa-check"></i>Click-Worthy Designs</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <i class="fa-solid fa-copyright"></i>
+            </div>
+            <h3>Logo & Branding</h3>
+            <p>
+              Clean and memorable visual identities that help businesses
+              build a professional and recognizable brand.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i>Logo Design</li>
+              <li><i class="fa-solid fa-check"></i>Brand Identity</li>
+              <li><i class="fa-solid fa-check"></i>Color Systems</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <h3>Advertising Design</h3>
+            <p>
+              Conversion-focused advertisements and promotional visuals
+              for digital marketing campaigns.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i>Ad Creatives</li>
+              <li><i class="fa-solid fa-check"></i>Product Promotions</li>
+              <li><i class="fa-solid fa-check"></i>Campaign Graphics</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h3>Video Editing</h3>
+            <p>
+              Short-form video editing and visual content creation for
+              social media and digital platforms.
+            </p>
+            <ul class="service-list">
+              <li><i class="fa-solid fa-check"></i>Reels & Shorts</li>
+              <li><i class="fa-solid fa-check"></i>CapCut Editing</li>
+              <li><i class="fa-solid fa-check"></i>Motion Graphics</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         WORK / AUTOMATIC RSS FEED
+    ========================== -->
+    <section class="section" id="work">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Latest Work</span>
+          <h2>Creative Feed</h2>
+          <p>
+            The latest videos are automatically loaded from the configured
+            YouTube RSS feed.
+          </p>
+        </div>
+
+        <div class="feed-status" id="feedStatus">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          Loading latest designs...
+        </div>
+
+        <div class="video-grid" id="videoGrid"></div>
+
+        <div class="feed-error" id="feedError">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <br /><br />
+          Unable to load the latest videos.
+          <br />
+          Please check your YouTube Channel ID and internet connection.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div class="about-content reveal">
+            <div class="section-title" style="text-align:left; margin-bottom:25px;">
+              <span>About Me</span>
+            </div>
+
+            <h2>
+              Turning ideas into
+              <span>visual impact.</span>
+            </h2>
+
+            <p>
+              I'm Hanan, a passionate graphic designer focused on creating
+              modern, professional and attention-grabbing visuals.
+            </p>
+
+            <p>
+              From social media posts and YouTube thumbnails to logos,
+              advertisements and branding, I combine creativity with
+              clean design principles to deliver visuals that stand out.
+            </p>
+
+            <div class="tools">
+              <span class="tool">
+                <i class="fa-brands fa-adobe"></i> Adobe Photoshop
+              </span>
+
+              <span class="tool">
+                <i class="fa-solid fa-pen-nib"></i> Adobe Illustrator
+              </span>
+
+              <span class="tool">
+                <i class="fa-solid fa-palette"></i> Canva
+              </span>
+
+              <span class="tool">
+                <i class="fa-solid fa-film"></i> CapCut
+              </span>
+            </div>
+          </div>
+
+          <div class="stats reveal">
+
+            <div class="stat-card">
+              <i class="fa-solid fa-briefcase"></i>
+              <h3>50+</h3>
+              <p>Projects</p>
+            </div>
+
+            <div class="stat-card">
+              <i class="fa-solid fa-users"></i>
+              <h3>25+</h3>
+              <p>Clients</p>
+            </div>
+
+            <div class="stat-card">
+              <i class="fa-solid fa-layer-group"></i>
+              <h3>100+</h3>
+              <p>Designs</p>
+            </div>
+
+            <div class="stat-card">
+              <i class="fa-solid fa-star"></i>
+              <h3>100%</h3>
+              <p>Creative</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Get In Touch</span>
+          <h2>Let's Create Something</h2>
+          <p>
+            Have a project in mind? Send me your requirements and let's
+            turn your idea into a professional design.
+          </p>
+        </div>
+
+        <div class="contact-box reveal">
+
+          <div class="contact-info">
+            <h2>Let's Talk.</h2>
+
+            <p>
+              Whether you need a logo, social media campaign, thumbnail,
+              advertisement or complete visual identity, I'm ready to help.
+            </p>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <small>Email</small>
+                <strong>your@email.com</strong>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div>
+                <small>WhatsApp</small>
+                <strong>+92 XXX XXXXXXX</strong>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <small>Location</small>
+                <strong>Pakistan</strong>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+
+            <div class="form-row">
+
+              <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+
+            </div>
+
+            <div class="input-group">
+              <i class="fa-solid fa-tag"></i>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Project Subject"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <i class="fa-solid fa-message"></i>
+              <textarea
+                name="message"
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane"></i>
+              Send Message
+            </button>
+
+            <div id="formMessage">
+              <i class="fa-solid fa-circle-check"></i>
+              Message prepared successfully!
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+
+        <div class="footer-text">
+          © <span id="year"></span> Hanan Graphics.
+          All Rights Reserved.
+        </div>
+
+        <div class="socials">
+
+          <!-- Replace # with your real profile URLs -->
+          <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="#" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+          <a href="#" aria-label="Behance">
+            <i class="fa-brands fa-behance"></i>
+          </a>
+
+          <a href="#" aria-label="Dribbble">
+            <i class="fa-brands fa-dribbble"></i>
+          </a>
+
+          <a href="#" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+  <script>
+
+    /* ==========================================
+       YOUTUBE RSS CONFIGURATION
+       
+       IMPORTANT:
+       Replace ONLY the Channel ID below.
+
+       Example:
+       const CHANNEL_ID = "UCxxxxxxxxxxxxxxxxxxxxxx";
+
+       The script automatically:
+       1. Creates the YouTube RSS feed URL
+       2. Sends it to rss2json
+       3. Gets latest videos
+       4. Uses only the latest 3
+       5. Parses video ID from guid
+       6. Creates thumbnails and YouTube links
+    ========================================== */
+
+    const CHANNEL_ID = "YOUR_YOUTUBE_CHANNEL_ID";
+
+    const RSS_URL =
+      `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+
+    const API_URL =
+      `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+    const videoGrid = document.getElementById("videoGrid");
+    const feedStatus = document.getElementById("feedStatus");
+    const feedError = document.getElementById("feedError");
+
+
+    /* ==========================================
+       PARSE VIDEO ID FROM GUID
+    ========================================== */
+    function getVideoIdFromGuid(guid) {
+
+      if (!guid) return null;
+
+      /*
+        YouTube RSS normally provides:
+
+        yt:video:VIDEO_ID
+
+        or a guid containing the video URL.
+      */
+
+      if (guid.includes("yt:video:")) {
+        return guid.split("yt:video:")[1].trim();
+      }
+
+      const match = guid.match(
+        /(?:v=|youtu\.be\/|\/video\/)([a-zA-Z0-9_-]{11})/
+      );
+
+      return match ? match[1] : null;
+    }
+
+
+    /* ==========================================
+       FORMAT DATE
+    ========================================== */
+    function formatDate(dateString) {
+
+      if (!dateString) return "";
+
+      const date = new Date(dateString);
+
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
+    }
+
+
+    /* ==========================================
+       ESCAPE HTML
+    ========================================== */
+    function escapeHTML(text) {
+
+      const div = document.createElement("div");
+
+      div.textContent = text || "";
+
+      return div.innerHTML;
+    }
+
+
+    /* ==========================================
+       LOAD LATEST VIDEOS
+    ========================================== */
+    async function loadLatestVideos() {
+
+      if (CHANNEL_ID === "YOUR_YOUTUBE_CHANNEL_ID") {
+
+        feedStatus.innerHTML =
+          `<span>Setup required:</span> Add your YouTube Channel ID in the JavaScript configuration.`;
+
+        return;
+      }
+
+      try {
+
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+          throw new Error("RSS request failed");
+        }
+
+        const data = await response.json();
+
+        if (!data.items || !data.items.length) {
+          throw new Error("No videos found");
+        }
+
+        /*
+          RSS items are sorted by latest videos.
+          Slice keeps only latest 3.
+        */
+        const latestVideos = data.items.slice(0, 3);
+
+        videoGrid.innerHTML = "";
+
+        latestVideos.forEach((video) => {
+
+          const videoId = getVideoIdFromGuid(video.guid);
+
+          if (!videoId) return;
+
+          const title = escapeHTML(video.title);
+          const date = formatDate(video.pubDate);
+
+          const thumbnail =
+            `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+          const youtubeUrl =
+            `https://www.youtube.com/watch?v=${videoId}`;
+
+          const card = document.createElement("article");
+
+          card.className = "video-card reveal";
+
+          card.innerHTML = `
+            <a
+              href="${youtubeUrl}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="${title}"
+            >
+              <div class="video-thumb">
+
+                <img
+                  src="${thumbnail}"
+                  alt="${title}"
+                  loading="lazy"
+                  onerror="this.src='https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg'"
+                />
+
+                <div class="play-button">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+
+              </div>
+
+              <div class="video-info">
+                <h3>${title}</h3>
+                <p>
+                  <i class="fa-regular fa-calendar"></i>
+                  ${date}
+                </p>
+              </div>
+            </a>
+          `;
+
+          videoGrid.appendChild(card);
+
+        });
+
+        feedStatus.innerHTML =
+          `<i class="fa-solid fa-circle-check"></i> Latest <span>3 videos</span> loaded automatically.`;
+
+        activateReveal();
+
+      } catch (error) {
+
+        console.error("RSS Feed Error:", error);
+
+        feedStatus.style.display = "none";
+
+        feedError.style.display = "block";
+      }
+    }
+
+
+    /* ==========================================
+       MOBILE NAVIGATION
+    ========================================== */
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+
+      navLinks.classList.toggle("active");
+
+      const icon = hamburger.querySelector("i");
+
+      if (navLinks.classList.contains("active")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+      } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      }
+
+    });
+
+
+    /* Close menu after clicking a link */
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+        const icon = hamburger.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+      });
+
+    });
+
+
+    /* ==========================================
+       SCROLL REVEAL ANIMATION
+    ========================================== */
+    function activateReveal() {
+
+      const revealElements =
+        document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("active");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+
+    /* ==========================================
+       CONTACT FORM
+       
+       This demo does not send email by itself.
+       Connect Formspree, EmailJS, PHP, etc.
+       for real form submission.
+    ========================================== */
+    const contactForm =
+      document.getElementById("contactForm");
+
+    const formMessage =
+      document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      formMessage.style.display = "block";
+
+      contactForm.reset();
+
+      setTimeout(() => {
+        formMessage.style.display = "none";
+      }, 5000);
+
+    });
+
+
+    /* ==========================================
+       CURRENT YEAR
+    ========================================== */
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* ==========================================
+       INITIALIZE
+    ========================================== */
+    document.addEventListener("DOMContentLoaded", () => {
+
+      activateReveal();
+
+      loadLatestVideos();
+
+    });
+
+  </script>
+
+</body>
+</html>
